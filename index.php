@@ -16,6 +16,7 @@
 
 <body>
     <div class="window">
+        <?php include("db/connection.php"); ?>
         <!-- https://iconsvg.xyz/ , https://www.svgrepo.com/ -->
         <div class="login-container">
             <div class="login-left">

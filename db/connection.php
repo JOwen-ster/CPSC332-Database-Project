@@ -1,18 +1,19 @@
 <?php
-// MySQLi connection script
+$db_server = "localhost";
+$db_user = "root";
+$db_pass = "";
+$db_name = "test";
 
-$servername = "localhost"; // Change if your MySQL server is on a different host
-$username = "your_username"; // Replace with your MySQL username
-$password = "your_password"; // Replace with your MySQL password
-$dbname = "your_database"; // Replace with your database name
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+try {
+    $conn = mysqli_connect(
+        $db_server,
+        $db_user,
+        $db_pass,
+        $db_name
+    );
+    echo "Connections to database established!";
+} catch (mysqli_sql_exception) {
+    echo "Failed to connect to database...";
 }
-
-echo "Connected successfully";
 ?>
