@@ -1,0 +1,227 @@
+:root {
+    --color-purple-50: #f5f3ff;
+    --color-purple-100: #ede9fe;
+    --color-purple-200: #ddd6fe;
+    --color-purple-300: #c4b5fd;
+    --color-purple-400: #a78bfa;
+    --color-purple-500: #8b5cf6;
+    --color-purple-600: #7c3aed;
+    --color-purple-700: #6d28d9;
+    --color-purple-800: #5b21b6;
+    --color-purple-900: #4c1d95;
+    --color-purple-950: #2e1065;
+
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-900: #111827;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: var(--color-gray-900);
+    background: white;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        flex-direction: row;
+    }
+}
+
+.left-panel {
+    background: linear-gradient(to bottom right,
+            var(--color-purple-700),
+            var(--color-purple-900));
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .left-panel {
+        width: 40%;
+        padding: 3rem;
+    }
+}
+
+.brand-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.brand-logo {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    backdrop-filter: blur(4px);
+}
+
+.brand-name {
+    font-size: 1.875rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.brand-tagline {
+    font-size: 1.25rem;
+    color: var(--color-purple-100);
+    max-width: 28rem;
+    line-height: 1.6;
+}
+
+.right-panel {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .right-panel {
+        width: 60%;
+        padding: 3rem 4rem;
+    }
+}
+
+.login-container {
+    max-width: 28rem;
+    width: 100%;
+    margin: 0 auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-header {
+    margin-bottom: 2.5rem;
+}
+
+.login-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--color-gray-900);
+    margin-bottom: 0.5rem;
+}
+
+.login-subtitle {
+    color: var(--color-gray-600);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-gray-700);
+    margin-bottom: 0.5rem;
+}
+
+.form-label svg {
+    margin-left: 0.5rem;
+    color: var(--color-purple-600);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    background: white;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-purple-500);
+    box-shadow: 0 0 0 2px var(--color-purple-100);
+}
+
+.password-toggle {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--color-gray-500);
+    cursor: pointer;
+    padding: 0.25rem;
+}
+
+.password-toggle:hover {
+    color: var(--color-purple-700);
+}
+
+.submit-button {
+    width: 100%;
+    background: var(--color-purple-600);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.2);
+}
+
+.submit-button:hover {
+    background: var(--color-purple-700);
+    box-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.3);
+}
+
+.signup-text {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--color-gray-600);
+}
+
+.signup-link {
+    color: var(--color-purple-600);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.signup-link:hover {
+    color: var(--color-purple-800);
+}
+
+.footer {
+    margin-top: auto;
+    padding-top: 2rem;
+    text-align: center;
+    color: var(--color-gray-500);
+    font-size: 0.875rem;
+}
