@@ -1,115 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sched</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/typography.css" />
-    <link rel="stylesheet" href="css/components.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/animations.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="SSG/styling.css">
 </head>
-
 <body>
-    <div class="window">
-        <?php include("db/connection.php"); ?>
+    <div class="main-content">
         <!-- https://iconsvg.xyz/ , https://www.svgrepo.com/ -->
-        <div class="login-container">
-            <div class="login-left">
-                <div class="brand-container">
+        <!-- https://uiverse.io/ for loaders --> 
+        <!-- add a toast notification when actions are done -->
+        <!-- make the dashboard body a bento box grid and the landing page make it have a flexbox as the body -->
+        <!-- https://bentogrids.com/shots/cluhanj5m0002i6oh8xprz2ru -->
+        <!-- Left Panel - Branding -->
+        <div class="left-panel">
+            <?php
+                include "db/connection.php"
+            ?>
+            <div class="brand-container">
+                <div class="brand-header">
                     <div class="brand-logo">
-                        <div class="logo-icon">
-                            <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="3"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <path d="M17 12H7"></path>
-                                <path d="M12 17V7"></path>
-                            </svg>
-                        </div>
-                        <h1 class="logo-text">Sched</h1>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
                     </div>
-                    <p class="brand-tagline">
-                        Schedule, plan, and manage events with ease.
+                    <h1 class="brand-name">Sched</h1>
+                </div>
+                <p class="brand-tagline">
+                    Schedule, plan, and manage events with elegance and simplicity.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Panel - Login Form -->
+        <div class="right-panel">
+            <div class="login-container">
+                <div class="login-header">
+                    <h2 class="login-title">Glad to see you</h2>
+                    <p class="login-subtitle">
+                        Log in to gracefully handle all your events
                     </p>
                 </div>
-                <div class="decoration-element"></div>
-                <div class="decoration-element-2"></div>
-            </div>
-            <div class="login-right">
-                <div class="login-form-container">
-                    <h2 class="login-title">Glad to see you.</h2>
-                    <p class="login-subtitle">
-                        Log in to gracefully manage your events
-                    </p>
 
-                    <form class="login-form" action="#" method="post">
-                        <div class="form-group">
-                            <label for="email">Email
-                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor"
-                                stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                </path>
+                <form>
+                    <div class="form-group">
+                        <label class="form-label">
+                            Email
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
-                            </label>
-                            <div class="input-wrapper">
-                                <input type="email" id="email" name="email" placeholder="Your email address" required />
-                                    <div class="input-icon">
-                                </div>
-                            </div>
+                        </label>
+                        <div class="input-wrapper">
+                            <input
+                                type="email"
+                                placeholder="Your email address"
+                                class="form-input"
+                                required
+                            >
                         </div>
-
-                        <div class="form-group">
-                            <div class="label-with-link">
-                                <label for="password">Password</label>
-                                <a href="#" class="forgot-password">Forgot password?</a>
-                            </div>
-                            <div class="input-wrapper">
-                                <input type="password" id="password" name="password" placeholder="Your password"
-                                    required />
-                                <button type="button" class="password-toggle" aria-label="Toggle password visibility">
-                                    <svg class="eye-icon" viewBox="0 0 24 24" width="18" height="18"
-                                        stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                        <circle cx="12" cy="12" r="3"></circle>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn-primary login-btn">
-                            <span>Log in</span>
-                            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </form>
-
-                    <p class="signup-prompt">
-                        Don't have an account?
-                        <a href="#" class="signup-link">Create account</a>
-                    </p>
-                </div>
-
-                <footer class="login-footer">
-                    <p>&copy; 2025 Sched. All rights reserved.</p>
-                    <div class="footer-links">
-                        <a href="#">Terms</a>
-                        <a href="#">Privacy</a>
-                        <a href="#">Help</a>
                     </div>
-                </footer>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Password
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </label>
+                        <div class="input-wrapper">
+                            <input
+                                type="password"
+                                placeholder="Your password"
+                                class="form-input"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        <span>Log in</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </form>
+
+                <p class="signup-text">
+                    Don't have an account?
+                    <a href="#" class="signup-link">Create account</a>
+                </p>
             </div>
+
+            <footer class="footer">
+                &copy; 2025 Sched. All rights reserved.
+            </footer>
         </div>
     </div>
 </body>
-
 </html>

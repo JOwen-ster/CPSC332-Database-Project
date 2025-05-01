@@ -1,8 +1,8 @@
 <?php
 $db_server = "localhost";
-$db_user = "root";
-$db_pass = "";
-$db_name = "test";
+$db_user = "auth";
+$db_pass = "dbroot%q";
+$db_name = "eventsystem";
 
 
 try {
