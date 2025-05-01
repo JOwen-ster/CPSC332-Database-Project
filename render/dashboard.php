@@ -27,7 +27,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     // Loop through events and output them
     if ($fetched_user_events && mysqli_num_rows($fetched_user_events) > 0) {
         while ($event = mysqli_fetch_assoc($fetched_user_events)) {
-            echo "<div>";
+            echo '<div class="event-card">';
             echo "<h3>" . htmlspecialchars($event['title']) . "</h3>"; // . is used for concatination
             echo "<p>" . htmlspecialchars($event['description']) . "</p>";
             echo "<p>" . htmlspecialchars($event['datetime']) . "</p>";
