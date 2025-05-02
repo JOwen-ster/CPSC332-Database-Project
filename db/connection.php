@@ -12,7 +12,7 @@ try {
         $db_pass,
         $db_name
     );
-    echo "Connections to database established!";
+    echo "Connection to database established!";
 } catch (mysqli_sql_exception) {
     echo "Failed to connect to database...";
 }
