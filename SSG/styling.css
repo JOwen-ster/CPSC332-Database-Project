@@ -163,22 +163,6 @@ body {
     box-shadow: 0 0 0 2px var(--color-purple-100);
 }
 
-.password-toggle {
-    position: absolute;
-    right: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: var(--color-gray-500);
-    cursor: pointer;
-    padding: 0.25rem;
-}
-
-.password-toggle:hover {
-    color: var(--color-purple-700);
-}
-
 .submit-button {
     width: 100%;
     background: var(--color-purple-600);
