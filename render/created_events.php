@@ -1,8 +1,8 @@
 <?php
-    include "../db/connection.php";
+    require_once "../db/connection.php";
     if (!session_id()) session_start();
 
-    $submitted_username = "development"; // Example username — replace with $_POST['username']
+    $submitted_username = $_POST['form_username']; // Example username — replace with $_POST['username']
 
     // Escape the input to prevent SQL injection
     $submitted_username = mysqli_real_escape_string($conn, $submitted_username);
@@ -27,7 +27,7 @@
         // Loop through events and output them
         if ($fetched_user_events && mysqli_num_rows($fetched_user_events) > 0) {
             while ($event = mysqli_fetch_assoc($fetched_user_events)) {
-                echo '<div style="display: flex; flex-direction: column;">';
+                echo '<div class="event-card">';
                 echo "<h3>" . htmlspecialchars($event['title']) . "</h3>"; // . is used for concatination
                 echo "<p>" . htmlspecialchars($event['description']) . "</p>";
                 echo "<p>" . htmlspecialchars($event['datetime']) . "</p>";

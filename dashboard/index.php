@@ -16,8 +16,16 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <div style="display: flex;">
-        <!-- <?php include "../render/created_events.php"; ?> -->
+    <div style="display: flex; flex-direction: column;">
+    <?php
+        if (isset($_GET['id'])) {
+            // Only render single event view
+            include "../render/single_event.php"; // will url to render that data
+        } else {
+            // Render all created events
+            include "../render/created_events.php";
+        }
+        ?>
     </div>
 </body>
 </html>
