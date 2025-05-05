@@ -22,7 +22,7 @@
             // Only render single event view
             include "../render/single_event.php"; // will url to render that data
         } else {
-            // Render all created events
+            // Render all created events, enrolled events, and open tickets
             include "../render/created_events.php";
         }
         ?>
