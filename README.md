@@ -13,10 +13,10 @@ USERS (maybe add profile icon using links to images)
 
 
 EVENTS
-* Every event has a id, title, description, datetime, location, creator (user), attendees (forigen key to user), max_members
+* Every event has a id, creator_id (user_id foreign key), title, description, start_time, location, attendees (JSON), end_time
 
 
 TICKETS
-* Every ticket has a id, subject, comment, datetime, location, creator (user), event
+when you join an event you get a ticket if you leave you lose it and a ticket points to and event id
 
-At the bottom of the page, their is an editor where you input the event id and parts you want to update, this way you dont need to create a dynamic page for every event, just one page that can update any event.
+example is select * from tickets where event_id = 1 and user_id = 1 then render those events
