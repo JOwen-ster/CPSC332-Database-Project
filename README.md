@@ -19,4 +19,4 @@ EVENTS
 TICKETS
 when you join an event you get a ticket if you leave you lose it and a ticket points to and event id
 
-example is select * from tickets where event_id = 1 and user_id = 1 then render those events
+example is select * from tickets where user_id in JSON then render those events

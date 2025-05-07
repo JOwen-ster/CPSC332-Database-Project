@@ -3,7 +3,7 @@
     if (!session_id()) session_start();
 
     $submitted_username = $_POST['form_username']; // Example username — replace with $_POST['username']
-
+    // PREPARE STATEMENT INSTEAD
     // Escape the input to prevent SQL injection
     $submitted_username = mysqli_real_escape_string($conn, $submitted_username);
 
