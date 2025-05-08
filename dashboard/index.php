@@ -22,11 +22,11 @@
             // Only render single event view
             include "../render/single_event.php"; // will url to render that data
         } else {
+            echo 'hello :3';
             // Render all created events
             include "../render/created_events.php"; // where creator_id = user id
             // Enrolled events (tickets... each ticket has a foriegn key to the event)
             include "../render/tickets.php"; // SELECT EVENT where user id in JSON
-            
         }
         ?>
     </div>

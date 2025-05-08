@@ -8,7 +8,7 @@
         $password = $_POST['i_password'] ?? '';
 
         // Prepare statement to prevent SQL injection
-        $stmt = mysqli_prepare($conn, "SELECT id FROM user WHERE username = ? AND password = ?");
+        $stmt = mysqli_prepare($conn, "SELECT id FROM users WHERE username = ? AND password = ?");
         if ($stmt) {
             mysqli_stmt_bind_param($stmt, "ss", $username, $password);
             mysqli_stmt_execute($stmt);
@@ -18,7 +18,7 @@
                 // User found, set session variables
                 $_SESSION['authenticated'] = true;
                 $_SESSION['form_username'] = $username;
-                $_SESSION['last_auth_attempt_status'] = null;
+                $_SESSION['last_auth_attempt_status'] = 'authenticated';
 
                 mysqli_stmt_close($stmt);
                 header("Location: ../dashboard");
@@ -27,7 +27,7 @@
                 // User not found or wrong credentials
                 $_SESSION['last_auth_attempt_status'] = "Invalid username or password.";
                 mysqli_stmt_close($stmt);
-                header("Location: ../index.php");
+                header("Location: ../");
                 exit();
             }
         } else {

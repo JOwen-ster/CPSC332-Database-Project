@@ -1,45 +1,54 @@
 <?php
-    require_once "../db/connection.php";
-    if (!session_id()) session_start();
+require_once "../db/connection.php";
+if (!session_id()) session_start();
 
-    $submitted_username = $_POST['form_username']; // Example username — replace with $_POST['username']
-    // PREPARE STATEMENT INSTEAD
-    // Escape the input to prevent SQL injection
-    $submitted_username = mysqli_real_escape_string($conn, $submitted_username);
+if (isset($_POST['form_username'])) {
+    $submitted_username = $_POST['form_username'];
 
-    // Query user_id_number from the users table
-    $formatted_query = "SELECT user_id_number FROM users WHERE username = '$submitted_username'";
-    $result = mysqli_query($conn, $formatted_query);
+    // Prepare statement to safely query the user ID
+    $stmt = mysqli_prepare($conn, "SELECT id FROM users WHERE username = ?");
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "s", $submitted_username);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $user_id_number = $row['user_id_number'];
+        if ($result && mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $user_id_number = $row['id'];
 
-        // Store the user's ID in the session
-        if (!isset($_SESSION['user_id_number'])) {
-            $_SESSION['user_id_number'] = $user_id_number;
-        }
+            // Store user ID in session if not already stored
+            if (!isset($_SESSION['user_id_number'])) {
+                $_SESSION['user_id_number'] = $user_id_number;
+            }
 
-        // Now get all events created by this user
-        $sql = "SELECT * FROM events WHERE creator_id = $user_id_number";
-        $fetched_user_events = mysqli_query($conn, $sql);
+            // Get all events created by the user
+            $stmt = mysqli_prepare($conn, "SELECT * FROM events WHERE creator_id = ?");
+            mysqli_stmt_bind_param($stmt, "i", $user_id_number);
+            mysqli_stmt_execute($stmt);
+            $events = mysqli_stmt_get_result($stmt);
 
-        // Loop through events and output them
-        if ($fetched_user_events && mysqli_num_rows($fetched_user_events) > 0) {
-            while ($event = mysqli_fetch_assoc($fetched_user_events)) {
-                echo '<div class="event-card">';
-                echo "<h3>" . htmlspecialchars($event['title']) . "</h3>"; // . is used for concatination
-                echo "<p>" . htmlspecialchars($event['description']) . "</p>";
-                echo "<p>" . htmlspecialchars($event['datetime']) . "</p>";
-                echo "<p>" . htmlspecialchars($event['location']) . "</p>";
-                echo "<p>" . htmlspecialchars($event['creator']) . "</p>";
-                echo "<p>" . htmlspecialchars($event['attendees']) . "</p>";
-                echo "</div>";
+            if ($events && mysqli_num_rows($events) > 0) {
+                while ($event = mysqli_fetch_assoc($events)) {
+                    echo '<div class="event-card">';
+                    echo "<h3>" . htmlspecialchars($event['title']) . "</h3>";
+                    echo "<p>Hosted by: " . htmlspecialchars($event['creator_id']) . "</p>";
+                    echo "<p>" . htmlspecialchars($event['description']) . "</p>";
+                    echo "<p>Start: " . htmlspecialchars($event['start']) . "</p>";
+                    echo "<p>End: " . htmlspecialchars($event['end']) . "</p>";
+                    echo "<p>Location: " . htmlspecialchars($event['location']) . "</p>";
+                    echo "<p>Event ID: " . htmlspecialchars($event['event_id']) . "</p>";
+                    echo "</div>";
+                }
+            } else {
+                echo "You have no events.";
             }
         } else {
-            echo "You have no events";
+            echo "User not found.";
         }
     } else {
-        echo "User not found.";
+        echo "Query preparation failed.";
     }
+} else {
+    echo "Username not provided.";
+}
 ?>
