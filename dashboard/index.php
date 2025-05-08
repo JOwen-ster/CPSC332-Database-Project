@@ -41,7 +41,7 @@
 
                 <!-- Enrolled Events Section -->
                 <div class="event-section">
-                    <h2 class="section-title">Your Enrolled Events</h2>
+                    <h2 class="section-title">Your Tickets</h2>
                     <?php include "../render/tickets.php"; ?>
                 </div>
             </div>

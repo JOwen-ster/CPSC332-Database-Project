@@ -9,10 +9,12 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
+// Modified query to join with users table to get the creator's username
 $sql = "
-    SELECT events.*
+    SELECT events.*, users.username AS creator_username
     FROM tickets
     INNER JOIN events ON tickets.event_id = events.event_id
+    INNER JOIN users ON events.creator_id = users.id
     WHERE tickets.user_id = ?
 ";
 
@@ -25,17 +27,17 @@ if ($result && mysqli_num_rows($result) > 0) {
     while ($event = mysqli_fetch_assoc($result)) {
         echo '<div class="event-card">';
         echo "<h3>" . htmlspecialchars($event['title']) . "</h3>";
-        echo "<p class=\"host\">Hosted by: " . htmlspecialchars($event['creator_id']) . "</p>";
+        echo "<p class=\"host\">Hosted by: " . htmlspecialchars($event['creator_username']) . "</p>";  // Displaying the creator's username
         echo "<p class=\"description\">" . htmlspecialchars($event['description']) . "</p>";
 
         echo "<div class=\"time-container\">";
         echo "<div class=\"time-label\">Start:</div>";
-        echo "<div class=\"time-value\">" . htmlspecialchars($event['start']) . "</div>";
+        echo "<div class=\"time-value\">" . htmlspecialchars($event['start_datetime']) . "</div>";
         echo "</div>";
 
         echo "<div class=\"time-container\">";
         echo "<div class=\"time-label\">End:</div>";
-        echo "<div class=\"time-value\">" . htmlspecialchars($event['end']) . "</div>";
+        echo "<div class=\"time-value\">" . htmlspecialchars($event['end_datetime']) . "</div>";
         echo "</div>";
 
         echo "<div class=\"location\">";

@@ -6,8 +6,7 @@ USERS (maybe add profile icon using links to images)
 * Every user can delete their own events (every attendee has that event deleted from their list)
 * Every user can update their own events (title, description, date, time, location, max_members)
 * Every user can remove users from an event they created
-* Every user can signup to multiple events
-* Every user can create a ticket for an event
+* Every user can enroll to multiple events by generating tickets with an event id
 * Every user can view tickets they created and for their own events
 * Every user can close tickets they created and for their own eventts
 

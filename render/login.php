@@ -8,6 +8,7 @@
         $password = $_POST['i_password'] ?? '';
 
         // Prepare statement to prevent SQL injection
+        // query id
         $stmt = mysqli_prepare($conn, "SELECT id FROM users WHERE username = ? AND password = ?");
         if ($stmt) {
             mysqli_stmt_bind_param($stmt, "ss", $username, $password);
@@ -20,7 +21,7 @@
                 mysqli_stmt_fetch($stmt);
                 // Set session variables
                 $_SESSION['authenticated'] = true;
-                $_SESSION['user_id'] = $user_id; // <== this is important
+                $_SESSION['user_id'] = $user_id;
                 $_SESSION['form_username'] = $username;
                 $_SESSION['last_auth_attempt_status'] = 'authenticated';
 
