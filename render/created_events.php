@@ -5,8 +5,8 @@ require_once "../db/connection.php";
 if (!session_id()) session_start();
 
 // Use user_id from session
-if (isset($_SESSION['user_id_number'])) {
-    $user_id_number = $_SESSION['user_id_number'];
+if (isset($_SESSION['user_id'])) {
+    $user_id_number = $_SESSION['user_id'];
 
     // Get all events created by the user
     $stmt = mysqli_prepare($conn, "SELECT * FROM events WHERE creator_id = ?");

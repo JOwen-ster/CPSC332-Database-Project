@@ -20,7 +20,10 @@
 <body>
     <div class="dashboard-container">
         <header class="dashboard-header">
-            <h1 class="welcome-text">Welcome back, <?php echo $username; ?></h1>
+            <h1 class="welcome-text">Welcome, <?php echo $username;?></h1>
+            <form action="../render/logout.php" method="post">
+                <button type="submit">Logout</button>
+            </form>
         </header>
 
         <?php if (isset($_GET['id'])): ?>

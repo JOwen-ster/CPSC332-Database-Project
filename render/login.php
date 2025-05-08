@@ -15,8 +15,12 @@
             mysqli_stmt_store_result($stmt);
 
             if (mysqli_stmt_num_rows($stmt) === 1) {
-                // User found, set session variables
+                // Fetch user ID
+                mysqli_stmt_bind_result($stmt, $user_id);
+                mysqli_stmt_fetch($stmt);
+                // Set session variables
                 $_SESSION['authenticated'] = true;
+                $_SESSION['user_id'] = $user_id; // <== this is important
                 $_SESSION['form_username'] = $username;
                 $_SESSION['last_auth_attempt_status'] = 'authenticated';
 
