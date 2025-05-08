@@ -2,9 +2,10 @@
     if (!session_id()) session_start();
 
     if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true) {
-        echo 'Hello ' . htmlspecialchars($_SESSION['form_username']);
+        $username = htmlspecialchars($_SESSION['form_username']);
     } else {
         header('Location: ../');
+        exit();
     }
 ?>
 
@@ -14,21 +15,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="../render/style.css">
 </head>
 <body>
-    <div style="display: flex; flex-direction: column;">
-    <?php
-        if (isset($_GET['id'])) {
-            // Only render single event view
-            include "../render/single_event.php"; // will url to render that data
-        } else {
-            echo 'hello :3';
-            // Render all created events
-            include "../render/created_events.php"; // where creator_id = user id
-            // Enrolled events (tickets... each ticket has a foriegn key to the event)
-            include "../render/tickets.php"; // SELECT EVENT where user id in JSON
-        }
-        ?>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1 class="welcome-text">Welcome back, <?php echo $username; ?></h1>
+        </header>
+
+        <?php if (isset($_GET['id'])): ?>
+            <!-- Single Event View -->
+            <div class="single-event">
+                <?php include "../render/single_event.php"; ?>
+            </div>
+        <?php else: ?>
+            <div class="events-grid">
+                <!-- Created Events Section -->
+                <div class="event-section">
+                    <h2 class="section-title">Your Created Events</h2>
+                    <?php include "../render/created_events.php"; ?>
+                </div>
+
+                <!-- Enrolled Events Section -->
+                <div class="event-section">
+                    <h2 class="section-title">Your Enrolled Events</h2>
+                    <?php include "../render/tickets.php"; ?>
+                </div>
+            </div>
+        <?php endif; ?>
     </div>
 </body>
 </html>
