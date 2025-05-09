@@ -74,7 +74,3 @@ INSERT INTO events (
     '2025-07-10 18:00:00',
     'Tech Convention Center, Silicon Valley'
 );
-
--- Insert tickets
-INSERT INTO tickets (user_id, event_id)
-VALUES (1, 2);
