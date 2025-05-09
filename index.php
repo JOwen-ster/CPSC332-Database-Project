@@ -12,11 +12,8 @@
 
 <body>
     <div class="main-content">
-        <!-- https://iconsvg.xyz/ , https://www.svgrepo.com/ -->
-        <!-- https://uiverse.io/ for loaders --> 
+        <!-- https://iconsvg.xyz/ -->
         <!-- add a toast notification when actions are done -->
-        <!-- make the dashboard body a bento box grid and the landing page make it have a flexbox as the body -->
-        <!-- https://bentogrids.com/shots/cluhanj5m0002i6oh8xprz2ru -->
         <!-- Left Panel - Branding -->
         <div class="left-panel">
             <?php
