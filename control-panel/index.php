@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/vite.svg">
   <title>Control Panel</title>
-  <link rel="stylesheet" href="control.css">
+  <link rel="stylesheet" href="control_panel.css">
 </head>
 <body>
     <main class="main-content">
@@ -151,7 +151,7 @@
         </form>
       </section>
 
-      <form action="generate_ticket.php" method="POST">
+      <form action="create_ticket.php" method="POST">
         <label for="ticket_id">Join An Event:</label>
         <input class="form-control" placeholder="Enter event id" type="number" name="event_id" id="event_id" required>
         <button class="btn btn-primary" type="submit">Join Event</button>
