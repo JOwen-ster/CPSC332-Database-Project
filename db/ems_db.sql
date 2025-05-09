@@ -2,14 +2,14 @@
 
 
 -- Create users table
-CREATE TABLE users (
+CREATE TABLE users IF NOT EXISTS(
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Create events table
-CREATE TABLE events (
+CREATE TABLE events IF NOT EXISTS (
     event_id INT AUTO_INCREMENT PRIMARY KEY,
     creator_id INT NOT NULL,
     title VARCHAR(100) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE events (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Create tickets table
-CREATE TABLE tickets (
+CREATE TABLE tickets IF NOT EXISTS (
     ticket_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     event_id INT NOT NULL,
