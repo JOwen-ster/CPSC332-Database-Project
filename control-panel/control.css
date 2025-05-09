@@ -261,20 +261,6 @@ label {
     transform: translateY(0);
 }
 
-.btn-secondary {
-    background-color: var(--color-gray-200);
-    color: var(--color-gray-700);
-}
-
-.btn-secondary:hover {
-    background-color: var(--color-gray-300);
-    transform: translateY(-1px);
-}
-
-.btn-secondary:active {
-    transform: translateY(0);
-}
-
 .new-event-btn {
     background-color: var(--color-primary);
     color: var(--color-white);
@@ -356,6 +342,11 @@ label {
 .message-close:hover {
     background-color: var(--color-gray-200);
     color: var(--color-gray-900);
+}
+
+.backlink {
+    text-decoration: none;
+    color: var(--color-primary);
 }
 
 /* ===== ANIMATIONS ===== */

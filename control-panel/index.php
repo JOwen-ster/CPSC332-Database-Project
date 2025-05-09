@@ -150,28 +150,27 @@
           </div>
         </form>
       </section>
+
       <form action="generate_ticket.php" method="POST">
         <label for="ticket_id">Join An Event:</label>
-        <input type="number" name="event_id" id="event_id" required>
-        <button type="submit">Join Event</button>
+        <input class="form-control" placeholder="Enter event id" type="number" name="event_id" id="event_id" required>
+        <button class="btn btn-primary" type="submit">Join Event</button>
       </form>
       <form action="delete_event.php" method="POST">
         <label for="ticket_id">Delete Your Event:</label>
-        <input type="number" name="event_id" id="event_id" required>
-        <button type="submit">Delete Event</button>
+        <input class="form-control" placeholder="Enter event id" type="number" name="event_id" id="event_id" required>
+        <button class="btn btn-primary" type="submit">Delete Event</button>
       </form>
       <form action="delete_ticket.php" method="POST">
         <label for="ticket_id">Discard Ticket:</label>
-        <input type="number" name="ticket_id" id="ticket_id" required>
-        <button type="submit">Remove Ticket</button>
+        <input class="form-control" placeholder="Enter ticket id" type="number" name="ticket_id" id="ticket_id" required>
+        <button class="btn btn-primary" type="submit">Remove Ticket</button>
       </form>
+      <a class="backlink" href="../dashboard">Back to Dashboard</a>
 
       <div id="message" class="message success">
         <span class="message-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-          </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
         </span>
         <span class="message-text"></span>
 
@@ -183,7 +182,7 @@
         </button>
       </div>
     </main>
-    <script>
+<script>
   const params = new URLSearchParams(window.location.search);
   const status = params.get("status");
 
@@ -195,10 +194,12 @@
 
     setTimeout(() => {
       message.classList.remove("visible");
+      message.remove();
     }, 5000);
 
-    document.querySelector(".message-close").addEventListener("click", function () {
+    document.querySelector(".message-close").addEventListener("click", () => {
       message.classList.remove("visible");
+      message.remove();
     });
   }
 </script>
