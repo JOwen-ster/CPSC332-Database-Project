@@ -102,7 +102,7 @@
 
                 <p class="signup-text">
                     Don't have an account?
-                    <a href="#" class="signup-link">Create account</a>
+                    <a href="./signup" class="signup-link">Create account</a>
                 </p>
             </div>
 
