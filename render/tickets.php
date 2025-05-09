@@ -49,6 +49,6 @@ if ($result && mysqli_num_rows($result) > 0) {
         echo "</div>";
     }
 } else {
-    echo "You don't have any tickets yet.";
+    echo "<h3>You don't have any tickets yet.</h3>";
 }
 ?>

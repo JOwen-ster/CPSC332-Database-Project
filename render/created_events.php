@@ -41,7 +41,7 @@ if (isset($_SESSION['user_id'])) {
             echo "</div>";
         }
     } else {
-        echo "You have no events.";
+        echo "<h3>You have no events.</h3>";
     }
 } else {
     echo "User session not found.";

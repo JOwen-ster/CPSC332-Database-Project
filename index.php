@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="SSG/styling.css">
 </head>
+
 <body>
     <div class="main-content">
         <!-- https://iconsvg.xyz/ , https://www.svgrepo.com/ -->

@@ -21,8 +21,17 @@
     <div class="dashboard-container">
         <header class="dashboard-header">
             <h1 class="welcome-text">Welcome, <?php echo $username;?></h1>
+            <form action="../control-panel" method="get">
+                <button class="purple-button" type="submit">
+                    Control Panel
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                </button>
+            </form>
             <form action="../render/logout.php" method="post">
-                <button type="submit">Logout</button>
+                <button class="purple-button" type="submit">
+                Logout
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3H6a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4M16 17l5-5-5-5M19.8 12H9"/></svg>
+            </button>
             </form>
         </header>
 
