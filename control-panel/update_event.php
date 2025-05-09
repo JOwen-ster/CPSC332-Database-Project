@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && !empty($_POST["event_id"])) {
                     $value = $dt->format('Y-m-d H:i:00');
                 } else {
                     $message = "Invalid datetime format for $field.";
-                    header("Location: control_panel.html?status=" . urlencode($message));
+                    header("Location: ../control_panel?status=" . urlencode($message));
                     exit();
                 }
             }

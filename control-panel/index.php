@@ -150,6 +150,21 @@
           </div>
         </form>
       </section>
+      <form action="delete_event.php" method="POST">
+        <label for="ticket_id">Delete Your Event:</label>
+        <input type="number" name="ticket_id" id="ticket_id" required>
+        <button type="submit">Delete Event</button>
+      </form>
+      <form action="delete_ticket.php" method="POST">
+        <label for="ticket_id">Leave An Event:</label>
+        <input type="number" name="ticket_id" id="ticket_id" required>
+        <button type="submit">Leave Event</button>
+      </form>
+      <form action="generate_ticket.php" method="POST">
+        <label for="ticket_id">Join An Event:</label>
+        <input type="number" name="ticket_id" id="ticket_id" required>
+        <button type="submit">Join Event</button>
+      </form>
 
       <div id="message" class="message success">
         <span class="message-icon">

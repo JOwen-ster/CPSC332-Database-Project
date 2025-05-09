@@ -2,7 +2,7 @@
 :root {
     --primary-color: #7c3aed;
     --background-color: #f8fafc;
-    --text-primary: var(-primary-color);
+    --text-primary: var(--primary-color);
     --text-secondary: #64748b;
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -42,6 +42,11 @@ body {
 
 .purple-button svg {
     margin-left: 0.5rem; /* adjust space as needed */
+}
+
+.button-a {
+  text-decoration: none;
+  color: white;
 }
 
 .dashboard-container {
@@ -368,21 +373,6 @@ body {
   box-sizing: border-box;
 }
 
-body {
-  font-family: var(--font-family);
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--color-gray-800);
-  background: linear-gradient(to bottom right, #f5f3ff, #ede9fe);
-  min-height: 100vh;
-}
-
-/* ===== LAYOUT ===== */
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
 
 .header {
   background: var(--color-white);
@@ -410,7 +400,6 @@ h1 {
 }
 
 .main-content {
-  flex: 1;
   padding: var(--space-6);
   max-width: 800px;
   margin: 0 auto;
