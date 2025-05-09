@@ -30,6 +30,11 @@ CREATE TABLE tickets (
     FOREIGN KEY (event_id) REFERENCES events(event_id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- Set Indexes
+ALTER TABLE events AUTO_INCREMENT = 1;
+ALTER TABLE users AUTO_INCREMENT = 1;
+ALTER TABLE tickets AUTO_INCREMENT = 1;
+
 -- Inser users
 INSERT INTO users (username, password)
 VALUES ('dev', 'phrase');

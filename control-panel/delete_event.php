@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-if (!isset($_POST['event_id']) || !is_numeric($_POST['event_id'])) {
+if (!isset($_POST['event_id'])) {
     redirect_with_status("Invalid event ID.");
 }
 
